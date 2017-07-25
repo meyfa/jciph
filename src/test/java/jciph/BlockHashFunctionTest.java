@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-import de.jangobrick.jciph.hashing.BlockHashFunction;
+import net.meyfa.jciph.hashing.BlockHashFunction;
 
 
 public class BlockHashFunctionTest

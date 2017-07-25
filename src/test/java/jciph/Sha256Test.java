@@ -11,7 +11,7 @@ import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import de.jangobrick.jciph.hashing.Sha256;
+import net.meyfa.jciph.hashing.Sha256;
 
 
 public class Sha256Test

@@ -1,4 +1,4 @@
-package de.jangobrick.jciph.hashing;
+package net.meyfa.jciph.hashing;
 
 /**
  * Abstract superclass for hash functions.
