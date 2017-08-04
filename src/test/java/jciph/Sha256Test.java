@@ -70,6 +70,23 @@ public class Sha256Test
     }
 
     @Test
+    public void testHashReuse()
+    {
+        Sha256 instance = new Sha256();
+
+        byte[] b0 = "hello".getBytes(StandardCharsets.US_ASCII);
+        byte[] exp0 = DatatypeConverter.parseHexBinary(
+                "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824");
+
+        byte[] b1 = "world".getBytes(StandardCharsets.US_ASCII);
+        byte[] exp1 = DatatypeConverter.parseHexBinary(
+                "486ea46224d1bb4fb680f34f7c9ad96a8f24ec88be73ea8e5a6c65260e9cb8a7");
+
+        assertArrayEquals(exp0, instance.hash(b0));
+        assertArrayEquals(exp1, instance.hash(b1));
+    }
+
+    @Test
     public void testHashRawBytes()
     {
         byte[] b = new byte[256];
