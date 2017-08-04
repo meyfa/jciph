@@ -47,6 +47,8 @@ public class Sha256 extends BlockHashFunction
 
         // let H = H0
         System.arraycopy(H0, 0, H, 0, H0.length);
+
+        totalLengthBytes = 0;
     }
 
     @Override
