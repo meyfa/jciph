@@ -143,7 +143,7 @@ public class Sha512 extends BlockHashFunction
     {
         // new message length: original + 1-bit and padding + 16-byte length
         int newMessageLength = length + 1 + 16;
-        int padBytes = BLOCK_BYTES - (newMessageLength % BLOCK_BYTES);
+        int padBytes = (BLOCK_BYTES - newMessageLength % BLOCK_BYTES) % BLOCK_BYTES;
         newMessageLength += padBytes;
 
         // copy message to extended array

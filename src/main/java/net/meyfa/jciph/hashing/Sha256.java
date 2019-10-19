@@ -126,7 +126,7 @@ public class Sha256 extends BlockHashFunction
     {
         // new message length: original + 1-bit and padding + 8-byte length
         int newMessageLength = length + 1 + 8;
-        int padBytes = BLOCK_BYTES - (newMessageLength % BLOCK_BYTES);
+        int padBytes = (BLOCK_BYTES - newMessageLength % BLOCK_BYTES) % BLOCK_BYTES;
         newMessageLength += padBytes;
 
         // copy message to extended array

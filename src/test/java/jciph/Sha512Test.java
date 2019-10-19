@@ -101,13 +101,27 @@ public class Sha512Test
         assertArrayEquals(exp1, instance.hash(b1));
     }
 
+    @Test
+    public void testHash111()
+    {
+        byte[] b = new byte[111];
+        for (int i = 0; i < b.length; ++i) {
+            b[i] = (byte) 'a';
+        }
+
+        byte[] expected = DatatypeConverter.parseHexBinary(
+                "fa9121c7b32b9e01733d034cfc78cbf67f926c7ed83e82200ef86818196921760b4beff48404df811b953828274461673c68d04e297b0eb7b2b4d60fc6b566a2");
+
+        assertArrayEquals(expected, new Sha512().hash(b));
+    }
+
     // finish()
 
     @Test
     public void testFinishCallsProcessBlockTwiceIfNeeded()
     {
         MockSha512 mock = new MockSha512();
-        mock.hash(new byte[111]);
+        mock.hash(new byte[112]);
 
         assertEquals(2, mock.blocksProcessed);
     }
